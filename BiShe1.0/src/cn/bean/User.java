@@ -10,8 +10,8 @@ public class User
 	private MedicalStaff ms;
 	private String fNamef;
 	private String fNames;
-	private String fNamefnum;
-	private String fNamesnum;
+	private int fNamefnum;
+	private int fNamesnum;
 	public Login getLogin()
 	{
 		return login;
@@ -76,19 +76,19 @@ public class User
 	{
 		this.fNames = fNames;
 	}
-	public String getfNamefnum()
+	public int getfNamefnum()
 	{
 		return fNamefnum;
 	}
-	public void setfNamefnum(String fNamefnum)
+	public void setfNamefnum(int fNamefnum)
 	{
 		this.fNamefnum = fNamefnum;
 	}
-	public String getfNamesnum()
+	public int getfNamesnum()
 	{
 		return fNamesnum;
 	}
-	public void setfNamesnum(String fNamesnum)
+	public void setfNamesnum(int fNamesnum)
 	{
 		this.fNamesnum = fNamesnum;
 	}
