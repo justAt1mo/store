@@ -37,6 +37,56 @@
   		<property name="sessionFactory" ref="sessionFactory"></property>
   	</bean>
   	<tx:annotation-driven transaction-manager="txManager"/>
+  	
+  	<bean id="transactionInterceptor" class="org.springframework.transaction.interceptor.TransactionInterceptor">
+  		<property name="transactionManager">
+  			<ref bean="transactionManager"/>
+  		</property>
+  		<property name="transactionAttributes">
+  			<props>
+  				<prop key="get*">PROPAGATION_REQUIRED, readOnly</prop>
+  				<!-- <prop key="getDirInfo">PROPAGATION_REQUIRED</prop> -->
+  				<prop key="*">PROPAGATION_REQUIRED</prop>
+  			</props>
+  		</property>
+  	</bean>
+  	
+  	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+  		<property name="sessionFactory" ref="sessionFactory"/>
+  	</bean>
+  	
+  	<bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+  		<property name="beanNames">
+  			<list>
+  				<value>loginDAO</value>
+  			</list>
+  		</property>
+  		<property name="interceptorNames">
+  			<list>
+  				<value>transactionInterceptor</value>
+  			</list>
+  		</property>
+  	</bean>
+  	
+  	<!-- 装配数据访问层 -->
+  	<bean id="loginDAO" class="cn.dao.impl.LoginDAOImpl">
+  		<constructor-arg>
+  			<ref bean="hibernateTemplate"/>
+  		</constructor-arg>
+  	</bean>
 
+	<!-- 装配业务逻辑层 -->
+	<bean id="loginService" class="cn.service.impl.LoginServiceImpl">
+  		<constructor-arg>
+  			<ref bean="loginDAO"/>
+  		</constructor-arg>
+  	</bean>
+  	
+  	<!-- 装配ServiceManager层 -->
+  	<bean id="serviceManager" class="cn.service.ServiceManager">
+  		<property name="loginService">
+  			<ref bean="loginService"/>
+  		</property>
+  	</bean>
   
 </beans>  

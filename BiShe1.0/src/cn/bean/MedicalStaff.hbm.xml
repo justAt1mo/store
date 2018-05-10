@@ -4,7 +4,7 @@
     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="cn.bean">
 	<class name="MedicalStaff">  
-        <id name="id">  
+        <id name="login">  
             <generator class="foreign">
             	<param name="property">login</param>
             </generator>  
@@ -12,7 +12,7 @@
         <one-to-one name="login" constrained="true"></one-to-one>
         <property name="name"/>  
         <property name="level"/>
-        <property name="phonenum"/>
+        <property name="phonenumber"/>
         <property name="department"/>
         <property name="position"/>
     </class>

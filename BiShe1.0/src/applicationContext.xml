@@ -56,7 +56,7 @@
   	</bean>
   	
   	<bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
-  		<property name="beanNaems">
+  		<property name="beanNames">
   			<list>
   				<value>loginDAO</value>
   			</list>
@@ -83,7 +83,7 @@
   	</bean>
   	
   	<!-- 装配ServiceManager层 -->
-  	<bean id="serviceService" class="cn.service.ServiceManager">
+  	<bean id="serviceManager" class="cn.service.ServiceManager">
   		<property name="loginService">
   			<ref bean="loginService"/>
   		</property>

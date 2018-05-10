@@ -4,7 +4,7 @@
     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="cn.bean">
 	<class name="User">  
-        <id name="id">  
+        <id name="login">  
             <generator class="foreign">
             	<param name="property">login</param>
             </generator>  

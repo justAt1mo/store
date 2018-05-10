@@ -14,6 +14,7 @@
 		<property name="hibernate.format_sql">true</property>
 		
 		<mapping resource="cn/bean/Login.hbm.xml"/>
-		
+		<mapping resource="cn/bean/MedicalStaff.hbm.xml"/>
+		<mapping resource="cn/bean/User.hbm.xml"/>
 	</session-factory>
 </hibernate-configuration>
