@@ -14,6 +14,7 @@ public class LoginServiceImpl implements LoginService
 	}
 	
 	//默认-1，为0为通过，为1位密码错误，为2为账号错误
+	//大于1000的id为用户（0），否则为医护人员（-1）
 	@Override
 	public Integer verifyLogin(Login login)
 	{
@@ -21,13 +22,27 @@ public class LoginServiceImpl implements LoginService
 		int result = -1;
 		if(login.getId().equals(l.getId()))
 		{
-			if(login.getPassword().equals(l.getPassword()))
+			if(login.getId()>1000)
 			{
-				result = 0;
+				if(login.getPassword().equals(l.getPassword()))
+				{
+					result = 0;
+				}
+				else
+				{
+					result = 1;
+				}
 			}
 			else
 			{
-				result = 1;
+				if(login.getPassword().equals(l.getPassword()))
+				{
+					result = -1;
+				}
+				else
+				{
+					result = 1;
+				}
 			}
 		}
 		else

@@ -2,7 +2,8 @@ package cn.bean;
 
 public class User
 {
-	private Login login;
+	private int id;
+	private Login ulogin;
 	private String name;
 	private int age;
 	private String address;
@@ -12,13 +13,23 @@ public class User
 	private String fNames;
 	private int fNamefnum;
 	private int fNamesnum;
-	public Login getLogin()
+	
+	public int getId()
 	{
-		return login;
+		return id;
 	}
-	public void setLogin(Login login)
+	public void setId(int id)
 	{
-		this.login = login;
+		this.id = id;
+	}
+	
+	public Login getUlogin()
+	{
+		return ulogin;
+	}
+	public void setUlogin(Login ulogin)
+	{
+		this.ulogin = ulogin;
 	}
 	public String getName()
 	{

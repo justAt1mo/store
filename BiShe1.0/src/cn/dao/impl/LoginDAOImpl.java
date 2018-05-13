@@ -18,9 +18,9 @@ public class LoginDAOImpl extends DAOSupport implements LoginDAO
 	@Override
 	public Login findLogin(Login login)
 	{
+		int id = login.getId();
 		// TODO Auto-generated method stub
-		String hql = "select * from Login where id = ?";
-		List<Login> result = template.find(hql, login.getId());
+		List<Login> result = template.find("from Login l where l.id = ?", id);
 		if(result.size()!=0)
 		{
 			return result.get(0);

@@ -9,8 +9,12 @@
 	<constant name="struts.action.extension" value="action"/>
 	
 	<package name="default" namespace="/" extends="struts-default">
-		<action name="test" class="TestAction">
-			<result name="success">/result.jsp</result>
+		<action name="login" class="cn.action.LoginAction">
+			<result name="user" type="redirect">/mainuser.jsp</result>
+			<result name="ms" type="redirect">/mainms.jsp</result>
+			<result name="error">/error.jsp</result>
+			<result name="input">/login.jsp</result>
 		</action>
+		
 	</package>
 </struts> 

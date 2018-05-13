@@ -2,19 +2,30 @@ package cn.bean;
 
 public class MedicalStaff
 {
-	private Login login;
+	private int id;
+	private Login mlogin;
 	private String name;
 	private int level;
 	private int phonenumber;
 	private String department;
 	private String position;
-	public Login getLogin()
+	
+	public int getId()
 	{
-		return login;
+		return id;
 	}
-	public void setLogin(Login login)
+	public void setId(int id)
 	{
-		this.login = login;
+		this.id = id;
+	}
+	
+	public Login getMlogin()
+	{
+		return mlogin;
+	}
+	public void setMlogin(Login mlogin)
+	{
+		this.mlogin = mlogin;
 	}
 	public String getName()
 	{

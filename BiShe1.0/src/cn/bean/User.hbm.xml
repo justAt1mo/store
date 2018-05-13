@@ -4,16 +4,15 @@
     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="cn.bean">
 	<class name="User">  
-        <id name="login">  
-            <generator class="foreign">
-            	<param name="property">login</param>
-            </generator>  
+        <id name="id" column="id">  
+            <generator class="native"/>
         </id> 
-        <one-to-one name="login" constrained="true"></one-to-one>
+        <many-to-one name="ulogin" class="cn.bean.Login" column="login_id" cascade="save-update" unique="true"/>
         <property name="name"/>  
         <property name="age"/>
         <property name="address"/>
         <property name="bednum"/>
+        <many-to-one name="ms" column="ms_id" class="cn.bean.MedicalStaff" cascade="save-update"/>
         <property name="fNamef"/>
         <property name="fNames"/>
         <property name="fNamefnum"/>
